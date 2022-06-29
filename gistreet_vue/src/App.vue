@@ -1,9 +1,8 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  <div id='wrapper'>
+    <nav class='navbar is-dark'>
+    </nav>
+  </div>
 </template>
 
 <style lang="scss">
