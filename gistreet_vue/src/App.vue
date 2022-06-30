@@ -9,6 +9,13 @@
           <span aria-hidden="true"></span>
         </a>
       </div>
+
+      <div class="navbar-menu" id="navbar-menu">
+        <div class="navbar-end">
+          <router-link to="/summer" class="navbar-item">Summer</router-link>
+          <router-link to="/summer" class="navbar-item">Winter</router-link>
+        </div>
+      </div>
     </nav>
   </div>
 </template>
