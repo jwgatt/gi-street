@@ -14,6 +14,12 @@
         <div class="navbar-end">
           <router-link to="/summer" class="navbar-item">Summer</router-link>
           <router-link to="/summer" class="navbar-item">Winter</router-link>
+
+          <div class="navbar-item">
+            <div class="buttons">
+              <router-link to="/log-in" class="button is-light"> Log in</router-link>
+            </div>
+          </div>
         </div>
       </div>
     </nav>
@@ -23,3 +29,4 @@
 <style lang="scss">
 @import '../node_modules/bulma'
 </style>
+
