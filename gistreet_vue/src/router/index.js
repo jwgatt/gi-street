@@ -6,7 +6,7 @@ import Product from '../views/Product.vue'
 const routes = [
   {
     path: '/',
-    name: 'home',
+    name: 'Home',
     component: HomeView
   },
   {
@@ -18,7 +18,7 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
   },
   {
-    path: '/:catagory_slug/:product_slug',
+    path: '/:catagory_slug/:product_slug/',
     name: 'Product',
     component: Product
   }

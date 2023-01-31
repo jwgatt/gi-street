@@ -3,10 +3,10 @@
         <div class="columns is-multiline">
             <div class="column is-12">
                 <figure class="image is-4by3">
-                    <img v-bind:src="product.image" alt="Placeholder image">
+                    <img v-bind:src="product.get_image">
                 </figure>
 
-                <h3 class="title is-size-4 has-text-centered">{{ product.name }}</h3>
+                <h1 class="title">{{ product.name }}</h1>
 
                 <p>{{ product.description }}</p>
             </div>
@@ -18,8 +18,9 @@
 
                 <div class="field has-addons">
                     <div class="control">
-                        <input class="input" type="number" placeholder="Quantity">
+                        <input class="input" type="number" min="1" v-model="quantity">
                     </div>
+                    
                     <div class="control">
                         <a class="button is-info">
                             Add to cart
