@@ -60,6 +60,8 @@ export default {
                 .get(`/api/v1/products/${catagory_slug}/${product_slug}`)
                 .then(response => {
                     this.product = response.data
+
+                    document.title=`${this.product.name} | Gistreet`
                 })
                 .catch(error => {
                     console.log(error)
