@@ -1,0 +1,8 @@
+1/2
+After spending tens of hours tring to get the image to render on the product details page, it was finally a case of removing many=True in the ProductSerializer imported method. seems like the many=true flag was turning the img into a list object and the browser couldnt render it.
+
+The same flag is needed to render the latestproducslist, without it the images arent seen. doesnt make sense that the productdetail method would need it. 
+removing it on productdetail param worked.
+
+
+

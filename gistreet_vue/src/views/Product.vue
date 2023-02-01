@@ -3,7 +3,7 @@
         <div class="columns is-multiline">
             <div class="column is-12">
                 <figure class="image is-4by3">
-                    <img v-bind:src="product.get_image">
+                    <img v-bind:src="product.get_image" alt="altImage" />
                 </figure>
 
                 <h1 class="title">{{ product.name }}</h1>
@@ -20,7 +20,7 @@
                     <div class="control">
                         <input class="input" type="number" min="1" v-model="quantity">
                     </div>
-                    
+
                     <div class="control">
                         <a class="button is-info">
                             Add to cart
@@ -51,7 +51,8 @@ export default {
             const catagory_slug = this.$route.params.catagory_slug
             const product_slug = this.$route.params.product_slug
 
-            axios.get(`/api/v1/${catagory_slug}/${product_slug}/`)
+            axios
+                .get(`/api/v1/products/${catagory_slug}/${product_slug}`)
                 .then(response => {
                     this.product = response.data
                 })
