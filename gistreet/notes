@@ -4,5 +4,14 @@ After spending tens of hours tring to get the image to render on the product det
 The same flag is needed to render the latestproducslist, without it the images arent seen. doesnt make sense that the productdetail method would need it. 
 removing it on productdetail param worked.
 
+2/2
+Create view workflow:
+BACKEND
+-view
+-serializer
+-urls
+FRONTEND
+-create page 
+-import page route to router
 
 
