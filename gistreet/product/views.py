@@ -31,8 +31,8 @@ class CatagoryDetail(APIView):
     def get_object(self, catagory_slug):
         try:
             return Catagory.objects.get(slug=catagory_slug)
-        except Product.DoesNotExist:
-            raise Http404
+        except Catagory.DoesNotExist:
+            raise Http404('No Catagory matches the given query.')
 
     def get(self, request, catagory_slug, format=None):
         catagory = self.get_object(catagory_slug)

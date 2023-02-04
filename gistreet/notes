@@ -14,4 +14,22 @@ FRONTEND
 -create page 
 -import page route to router
 
+4/2
+getting 500 server error, path doesnt exist, when creating catagory view. 
+the url is showing as catagory/catagory which needsto be changed anyways because of bad UX. 
+ill  tinker with the admin/views/url file.
+because category slug is same as name?
+something inside sql database?
+GET method in catagoryDetail class not finding which collumn or row in db.
+changed axios route in catagory vue, 404
+changed exception in catdetail class in view, 404
+debug output is cat object with slug of mens not found in db.
+changed name of cat in database to MensWear, still 404
+its not because its lowercase is it
+yes it was. lesson learned.
+--changed the routerlink in app.vue Womens and Mens
+--some rountes still need to be fixed, ex cat to cat 
 
+
+
+views connects to models, urls connects to views.
