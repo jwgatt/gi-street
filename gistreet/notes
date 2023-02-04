@@ -29,6 +29,11 @@ its not because its lowercase is it
 yes it was. lesson learned.
 --changed the routerlink in app.vue Womens and Mens
 --some rountes still need to be fixed, ex cat to cat 
+SOLVED
+
+renderign component on homepage is throwing not defined on instance error.
+question of scope, remove for method on component so that property is defined in scope
+SOLVED
 
 
 

@@ -1,8 +1,8 @@
 <template>
   <div id="wrapper">
     <nav class="navbar is-dark">
-      <div class="navbar-brand">
 
+      <div class="navbar-brand">
         <router-link to="/" class="navbar-item"><strong>Gi-Street</strong></router-link>
         <a class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbar-menu"
           @click="showMobileMenu = !showMobileMenu">
@@ -13,22 +13,39 @@
       </div>
 
       <div class="navbar-menu" id="navbar-menu" v-bind:class="{ 'is-active': showMobileMenu }">
+        <div class="navbar-start">
+          <div class="navbar-item">
+            <form method="get" action="/search">
+              <div class="field has-addons">
+                <div class="control">
+                  <input class="input" type="text" name="query" placeholder="Search">
+                </div>
+                <div class="control">
+                  <button class="button is-success">
+                    <span class="icon">
+                      <i class="fas fa-search"></i>
+                    </span>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+
         <div class="navbar-end">
           <router-link to="/Mens" class="navbar-item">Male</router-link>
           <router-link to="/Womens" class="navbar-item">Female</router-link>
-
           <div class="navbar-item">
             <div class="buttons">
               <router-link to="/log-in" class="button is-light"> Log in</router-link>
-
               <router-link to="/cart" class="button is-success">
                 <span class="icon"><i class="fas fa-shopping-cart"></i></span>
                 <span>Cart ({{ cartTotalLength }})</span>
               </router-link>
             </div>
-
           </div>
         </div>
+
       </div>
     </nav>
 
