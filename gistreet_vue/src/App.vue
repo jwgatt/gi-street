@@ -14,8 +14,8 @@
 
       <div class="navbar-menu" id="navbar-menu" v-bind:class="{ 'is-active': showMobileMenu }">
         <div class="navbar-end">
-          <router-link to="/mens" class="navbar-item">Male</router-link>
-          <router-link to="/womens" class="navbar-item">Female</router-link>
+          <router-link to="/Mens" class="navbar-item">Male</router-link>
+          <router-link to="/Womens" class="navbar-item">Female</router-link>
 
           <div class="navbar-item">
             <div class="buttons">

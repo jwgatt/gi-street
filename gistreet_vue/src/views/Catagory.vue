@@ -43,7 +43,7 @@ export default {
         async getCatagory() {
             const catagorySlug = this.$route.params.catagory_slug;
 
-            this.$store.commit('setLoading', true);
+            this.$store.commit('setIsLoading', true);
 
             axios.get(`/api/v1/products/${catagorySlug}/`)
                 .then(response => {
@@ -53,16 +53,15 @@ export default {
                 })
                 .catch(error => {
                     toast({
-                        message: error.response.data.message,
+                        message: 'Error getting catagory',
                         type: 'is-danger',
                         dismissible: true,
                         pauseOnHover: true,
                         duration: 5000,
-                        animate: { in: 'fadeIn', out: 'fadeOut' }
                     });
                 });
 
-            this.$store.commit('setLoading', false);
+            this.$store.commit('setIsLoading', false);
         }
     }
 }
