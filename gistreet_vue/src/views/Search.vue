@@ -28,17 +28,33 @@ export default {
     mounted() {
         document.title = 'Search | Gistreet'
 
+        //get info from url
         let uri = window.location.search.substring(1);
+        //get parameters from url
         let params = new URLSearchParams(uri);
 
+        //get query from url
         if (params.get('query')) {
+            //reference to value of query
             this.query = params.get('query');
+            //create functionality to search
             this.search();
         }
     },
     methods: {
-        search() {
+        async search() {
+            this.$store.commit('setIsLoading', true);
 
+            await axios
+                .post('/api/v1/products/search/', { 'query': this.query })
+                .then(response => {
+                    this.products = response.data;
+                })
+                .catch(error => {
+                    console.log(error);
+                });
+
+            this.$store.commit('setIsLoading', false);
         }
     }
 }
