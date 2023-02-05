@@ -52,3 +52,13 @@ def search(request):
         return Response(serializer.data)
     else:
         return Response({"products": []})
+
+
+@api_view(['GET'])
+def cart(request):
+    cart=request.session.get('cart',[])
+    products=Product.objects.filter(id__in=cart)
+    return Response(ProductSerializer(products,many=True).data)
+
+
+

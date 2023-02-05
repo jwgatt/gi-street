@@ -35,6 +35,11 @@ renderign component on homepage is throwing not defined on instance error.
 question of scope, remove for method on component so that property is defined in scope
 SOLVED
 
+create cart vue
+--create page vue
+-plug in andconnect vueRouter
+-write the backend vue.
+
 
 
 views connects to models, urls connects to views.
