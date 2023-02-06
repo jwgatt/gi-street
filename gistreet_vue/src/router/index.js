@@ -6,6 +6,8 @@ import Product from '../views/Product.vue'
 import Cart from '../views/Cart.vue'
 import SignUp from '../views/SignUp.vue'
 import Login from '../views/Login.vue'
+import Account from '../views/Account.vue'
+import store from '@/store'
 
 const routes = [
   {
@@ -50,12 +52,30 @@ const routes = [
     path: '/login',
     name: 'Login',
     component: Login
-  }
+  },
+  {
+    path: '/account',
+    name: 'Account',
+    component: Account,
+    meta: {
+      requireLogin: true
+    }
+  },
 ]
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes
+})
+
+router.beforeEach((to, from, next) => {
+  //if require login and not authenticated
+  if (to.matched.some(record => record.meta.requireLogin) && !store.state.isAuthenticated) {
+    //redirect path to login
+    next({ name: 'Login', query: { to: to.path } });
+  } else {
+    next()
+  }
 })
 
 export default router

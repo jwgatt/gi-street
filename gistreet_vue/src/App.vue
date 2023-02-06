@@ -31,21 +31,32 @@
             </form>
           </div>
         </div>
-
         <div class="navbar-end">
           <router-link to="/Mens" class="navbar-item">Male</router-link>
           <router-link to="/Womens" class="navbar-item">Female</router-link>
           <div class="navbar-item">
+
             <div class="buttons">
-              <router-link to="/login" class="button is-light"> Log in</router-link>
+              <template v-if="$store.state.isAuthenticated">
+                <router-link to="/account" class="button is-primary">
+                  <strong>My Account</strong>
+                </router-link>
+              </template>
+
+              <template v-else>
+                <router-link to="/login" class="button is-light">
+                  Log in
+                </router-link>
+              </template>
+
               <router-link to="/cart" class="button is-success">
                 <span class="icon"><i class="fas fa-shopping-cart"></i></span>
                 <span>Cart ({{ cartTotalLength }})</span>
               </router-link>
             </div>
+
           </div>
         </div>
-
       </div>
     </nav>
 
