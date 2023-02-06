@@ -37,7 +37,7 @@
           <router-link to="/Womens" class="navbar-item">Female</router-link>
           <div class="navbar-item">
             <div class="buttons">
-              <router-link to="/log-in" class="button is-light"> Log in</router-link>
+              <router-link to="/login" class="button is-light"> Log in</router-link>
               <router-link to="/cart" class="button is-success">
                 <span class="icon"><i class="fas fa-shopping-cart"></i></span>
                 <span>Cart ({{ cartTotalLength }})</span>
@@ -63,6 +63,8 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
   data() {
     return {
@@ -74,6 +76,14 @@ export default {
   },
   beforeCreate() {
     this.$store.commit('initializeStore')
+
+    const token = this.$store.commit('initializeStore')
+
+    if (token) {
+      axios.defaults.headers.common['Authorization'] = 'Token ' + token
+    } else {
+      axios.defaults.headers.common['Authorization'] = ""
+    }
   },
   mounted() {
     this.cart = this.$store.state.cart

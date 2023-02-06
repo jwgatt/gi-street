@@ -5,6 +5,7 @@ import Catagory from '../views/Catagory.vue'
 import Product from '../views/Product.vue'
 import Cart from '../views/Cart.vue'
 import SignUp from '../views/SignUp.vue'
+import Login from '../views/Login.vue'
 
 const routes = [
   {
@@ -44,6 +45,11 @@ const routes = [
     path: '/signup',
     name: 'SignUp',
     component: SignUp
+  },
+  {
+    path: '/login',
+    name: 'Login',
+    component: Login
   }
 ]
 

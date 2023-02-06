@@ -18,7 +18,16 @@ export default createStore({
       } else {
         localStorage.setItem('cart', JSON.stringify(state.cart));
       }
+
+      //check if user is authenticated
+      if (localStorage.getItem('token')) {
+        state.isAuthenticated = true
+      } else {
+        state.token=''
+        state.isAuthenticated = false
+      }
     },
+
     addToCart(state, item) {
       const exists = state.cart.items.filter(i => i.product.id === item.product.id)
 
@@ -32,6 +41,10 @@ export default createStore({
     },
     setIsLoading(state, status) {
       state.isLoading = status
+    },
+    setToken(state, token) {
+      state.token = token
+      state.isAuthenticated = true
     }
 
   },
