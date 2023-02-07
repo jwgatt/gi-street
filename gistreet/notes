@@ -40,6 +40,14 @@ create cart vue
 -plug in andconnect vueRouter
 -write the backend vue.
 
+6/7
+create checkout view
+-get items bought and add teh total
+-give options to remove and adjust total
+-shipping address? and card detaisl
+-write the html
+-
+
 
 
 views connects to models, urls connects to views.
