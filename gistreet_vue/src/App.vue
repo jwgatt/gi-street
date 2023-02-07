@@ -44,7 +44,7 @@
               </template>
 
               <template v-else>
-                <router-link to="/login" class="button is-light">
+                <router-link to="/" class="button is-light">
                   Log in
                 </router-link>
               </template>

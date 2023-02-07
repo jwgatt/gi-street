@@ -8,6 +8,8 @@ import SignUp from '../views/SignUp.vue'
 import Login from '../views/Login.vue'
 import Account from '../views/Account.vue'
 import store from '@/store'
+import Checkout from '../views/Checkout.vue'
+import Success from '../views/Success.vue'
 
 const routes = [
   {
@@ -61,6 +63,19 @@ const routes = [
       requireLogin: true
     }
   },
+  {
+    path: '/cart/checkout',
+    name: 'Checkout',
+    component: Checkout,
+    meta: {
+      requireLogin: true
+    }
+  },
+  {
+    path: '/cart/checkout/success',
+    name: 'Success',
+    component: Success,
+  }
 ]
 
 const router = createRouter({
