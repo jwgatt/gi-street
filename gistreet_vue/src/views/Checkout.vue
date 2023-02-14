@@ -72,13 +72,13 @@
                 <div class="field">
                     <label class="label">Post code</label>
                     <div class="control">
-                        <input class="input" type="text" placeholder="Postal code" v-model="card.postal_code">
+                        <input class="input" type="text" placeholder="Postal code" v-model="postal_code">
                     </div>
                 </div>
                 <div class="field">
-                    <label class="label">Place</label>
+                    <label class="label">Phone</label>
                     <div class="control">
-                        <input class="input" type="text" placeholder="Place" v-model="place">
+                        <input class="input" type="text" placeholder="Phone" v-model="phone">
                     </div>
                 </div>
             </div>
@@ -100,7 +100,7 @@
 </template>
 
 <script>
-import fetch from "node-fetch";
+
 export default {
     name: "Checkout",
     data() {
@@ -114,8 +114,10 @@ export default {
             last_name: '',
             email: '',
             address: '',
-            place: '',
             errors: [],
+            phone: '',
+            user: '',
+            items: [],
         };
     },
     mounted() {
@@ -187,29 +189,31 @@ export default {
                 'email': this.email,
                 'address': this.address,
                 'postal_code': this.postal_code,
-                'place': this.place,
-                'phone': this.phone,
-                'items': items,
+                'items': this.items,
                 'stripe_token': token.id,
+                'phone': this.phone,
+                'user': '1',
             }
 
-            await fetch('/api/v1/checkout/', {
+            await fetch('http://localhost:8000/api/v1/checkout/', {
                 method: 'POST',
+                credentials: 'same-origin',
                 headers: {
+                    'Authorization': 'Token ' + '0b3fe5cdc942bd4875cebcd1118f7b3e6d745da6',
                     'Content-Type': 'application/json',
+                    'X-Requested-With': 'XMLHttpRequest',
                     'X-CSRFToken': this.$store.state.csrfToken,
                 },
-            }
 
-            )
+                body: JSON.stringify(data),
+
+            })
                 .then(response => {
                     this.$store.commit('clearCart');
-                    this.$router.push('/api/v1/success/');
+                    this.$router.push('/cart/success/');
                 })
                 .catch(error => {
                     this.errors.push('Something went wrong, please try again later');
-
-                    console.log(error);
                 });
         }
     },

@@ -46,8 +46,40 @@ create checkout view
 -give options to remove and adjust total
 -shipping address? and card detaisl
 -write the html
--
 
+7/7
+'authorisation credentialsnotprovided ' error on clickig  pay with stripe button. 
+-no jwt in settings
+-not default rest-auth framework in settings
+-credentials seems ok
+-could be dotenv isnt passing the key
+-not the comma in .env between values
+-tried Content-Security-Policy: default-src 'none'; img-src 'self';in index.html
+-changed meta csp in html index
+-tried chatgdp suggestion add stripe link to settings.py
+-found error in shell , dotenv could not parse ...
+-removed commas and '' from .env
+-changed .env config , imprt os and create objects of env
+-checked csp config in firefox
+-logged in with admin and now get 400 bad request axios.
+-try naked KEY in settings.py
+-hardcoded bearer and auth token in request.
+
+13/2
+-changed axios to fetch and was able to post to the db
+-had to add cors modules to settings.py because images were not rendering due to cross origin error
+-throwing 404 error when posting to api/v1/checkout/
+-may be because fields in db dont match data fields in post payload
+-removed cookie partitioning in firefox config
+-maybe change the scheme from html to json
+-changed path to localhost 8000 in fetch method, now seeing auth not provided error.
+-get tokens from admin page, now throws error that fields are not filled
+-added kwargs to serializer to no avail
+**get user id with request
+**get product and order
+---ideas; request userid, kwargs required:false, delete the instances of user, product and order, write additional forms in the checkout-vue templalte, provide all keys in the data list object of the async func, modify serializer or modules and then run makemigrations, add blank=true on fields, 
+-i've added the missing fields in the data list object and it has killed the errors. now there is no response from the server. console log is. 
+--change amount value to int greater than zero for stripe api. DID IT!!
 
 
 views connects to models, urls connects to views.

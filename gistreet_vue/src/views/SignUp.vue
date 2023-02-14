@@ -63,7 +63,7 @@ export default {
                 this.errors.push("Passwords do not match");
             }
             if (this.errors.length === 0) {
-                axios.post("/api/v1/users/", {
+                axios.post("http://localhost:8000/api/v1/users/", {
                     username: this.username,
                     password: this.password
                 }).then(response => {
