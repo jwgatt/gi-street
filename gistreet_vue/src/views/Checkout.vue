@@ -199,7 +199,7 @@ export default {
                 method: 'POST',
                 credentials: 'same-origin',
                 headers: {
-                    'Authorization': 'Token ' + '0b3fe5cdc942bd4875cebcd1118f7b3e6d745da6',
+                    'Authorization': 'Token ' + localStorage.getItem('token'),
                     'Content-Type': 'application/json',
                     'X-Requested-With': 'XMLHttpRequest',
                     'X-CSRFToken': this.$store.state.csrfToken,

@@ -6,8 +6,7 @@
             </div>
 
             <div class="column is-12">
-                <h2 class="subtitle">Username: {{ $store.state.username }}</h2>
-                <OrderSummary v-for="order in orders" :key="order.id" :order="order" />
+                <OrderSummary :order="myOrder" />
             </div>
 
             <div class="column is-12">
@@ -18,7 +17,7 @@
 </template>
 
 <script>
-import OrderSummary from '../views/OrderSummary.vue'
+import OrderSummary from '../components/OrderSummary.vue'
 import axios from 'axios';
 export default {
     name: "Account",
@@ -27,12 +26,21 @@ export default {
     },
     data() {
         return {
-            orders: []
+            myOrder: {
+                id: 1,
+                quantity: 1,
+                price: 1,
+                items: [
+                    'item1',
+                    'item2',
+                    'item3',
+                    'item4',
+                ]
+            },
         }
     },
     mounted() {
-        document.title = "My Account  | Gistreet";
-
+        document.title = "My Account  | Gistreet"
         this.getMyOrders()
     },
     methods: {
@@ -48,22 +56,26 @@ export default {
             this.$router.push('/')
         },
         async getMyOrders() {
-            this.$store.commit('setLoading', true)
+            this.$store.commit('setIsLoading', true)
 
-            axios.get('/api/v1/orders/')
-                .then(response => {
-                    this.orders = response.data
-                })
-                .catch(error => {
-                    console.log(error)
-                })
+            await fetch('http://localhost:8000/api/v1/orders/', {
+                credentials: 'same-origin',
+                headers: {
+                    'Authorization': 'Token ' + localStorage.getItem('token'),
+                    'Content-Type': 'application/json',
+                    'X-Requested-With': 'XMLHttpRequest',
+                    'X-CSRFToken': this.$store.state.csrfToken,
+                },
+            })
+                .then(data => {
+                    console.log(data);
+                    this.orders = data.orders;
+                }).catch(error => {
+                    console.log(error);
+                });
 
-            this.$store.commit('setLoading', false)
+            this.$store.commit('setIsLoading', false)
         }
     },
-    mounted() {
-        document.title = "My Account  | Gistreet";
-    }
 }
-
 </script>

@@ -1,9 +1,9 @@
 <template>
     <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <h1>Success</h1>
-                <p>Thank you for your order!</p>
+        <div class="row ">
+            <div class="col-md-16">
+                <h1 class="title">Success</h1>
+                <h2 class="subtitle">Thank you for your order!</h2>
             </div>
         </div>
     </div>

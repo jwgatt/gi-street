@@ -81,5 +81,15 @@ create checkout view
 -i've added the missing fields in the data list object and it has killed the errors. now there is no response from the server. console log is. 
 --change amount value to int greater than zero for stripe api. DID IT!!
 
+--New problem, error when getting list of products for account. gives 404 to /v1/orders. 
+--write new module class and current_name because attribute error,  update url.py and add app in settings.py, which throws 20 exceptions in the shell. at least it compiles and runs..
+--cleanup name conflicts between app2 and order
+--throws unothorized error
+--json unexpected character error
+--fixed by removing jsonparser in response handler
+--made migrations which took the order app in settings, ran its models and created tables and admin data.so cool when it works
+--now to populate myAccount with items
+--
+
 
 views connects to models, urls connects to views.

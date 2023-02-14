@@ -7,7 +7,7 @@ from product.models import Product
 
 class Order(models.Model):
     user = models.ForeignKey(
-        User, related_name='orders', on_delete=models.CASCADE, )
+        User, related_name='user_items', on_delete=models.CASCADE, )
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     email = models.CharField(max_length=100)
@@ -29,7 +29,7 @@ class OrderItem(models.Model):
     order = models.ForeignKey(
         Product, related_name='order_items', on_delete=models.CASCADE)
     product = models.ForeignKey(
-        Product, related_name='order_items', on_delete=models.CASCADE)
+        Product, related_name='app2_items', on_delete=models.CASCADE)
     price = models.DecimalField(max_digits=8, decimal_places=2)
     quantity = models.PositiveIntegerField(default=1)
 

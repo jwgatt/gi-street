@@ -75,7 +75,8 @@ const routes = [
     path: '/cart/success',
     name: 'Success',
     component: Success,
-  }
+  },
+  
 ]
 
 const router = createRouter({
